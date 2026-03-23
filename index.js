@@ -270,16 +270,16 @@ async function main() {
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-// Railway 需要一個 HTTP 端口
-const PORT = process.env.PORT;
-if (PORT) {
-  http.createServer((_req, res) => {
-    res.writeHead(200);
-    res.end(`OK. Connected: ${wsConnected}. Price: ${currentPrice ? currentPrice.sell : "N/A"}`);
-  }).listen(PORT, () => console.log(`[HTTP] Port ${PORT}`));
-}
-
-main().catch(console.error);
+// Railway 需要一個 HTTP 端口 — 必須最先啟動，否則 Railway 會 kill container
+const PORT = process.env.PORT || 3000;
+http.createServer((_req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end(`OK | Connected: ${wsConnected} | Price: ${currentPrice ? currentPrice.sell : "waiting"} | Alert: ${isAlertActive ? targetPrice : "off"}`);
+}).listen(PORT, "0.0.0.0", () => {
+  console.log(`[HTTP] Port ${PORT} ready`);
+  // HTTP 起好之後先啟動 Bot 主程式
+  main().catch(console.error);
+});
 
 process.on("uncaughtException", (err) => console.error("[Error]", err));
 process.on("unhandledRejection", (err) => console.error("[Error]", err));
