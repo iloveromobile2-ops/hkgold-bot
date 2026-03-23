@@ -1,0 +1,15 @@
+{
+  "name": "hkgold-telegram-bot",
+  "version": "1.0.0",
+  "description": "港金價格監控 Telegram Bot - 實時監控永豐金融港金賣出價，價格到位自動通知",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "socket.io-client": "^2.5.0"
+  }
+}
