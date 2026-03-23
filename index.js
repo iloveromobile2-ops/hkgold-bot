@@ -14,7 +14,7 @@
  *   /cancel        - 取消當前監控
  *   /help          - 查看指令說明
  */
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 const https = require("https");
 const http = require("http");
 
