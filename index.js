@@ -19,7 +19,7 @@ const https = require("https");
 const http = require("http");
 
 // ============ 配置 ============
-const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN || "8655406143:AAGYxxhB9H3BgS-yrguT68xJpgVH_Oku_LQ";
+const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN || "8655406143:AAG3GAeVIkhSTuNcc6OxKOHSLk4FFraMkEo";
 const CHAT_ID = process.env.CHAT_ID || "8776701945";
 const CHECK_INTERVAL = 10000; // 10秒
 
