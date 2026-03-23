@@ -21,7 +21,7 @@ const http = require("http");
 // ============ 配置 ============
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN || "8655406143:AAG3GAeVIkhSTuNcc6OxKOHSLk4FFraMkEo";
 const CHAT_ID = process.env.CHAT_ID || "8776701945";
-const CHECK_INTERVAL = 10000; // 10秒
+const CHECK_INTERVAL = 60000; // 10秒
 
 const WF_SOCKET_URL = "https://quote.wfgold.com:8082/bquote";
 const WF_TOKEN = "applepieapplepieapplepieapplepie";
